@@ -130,7 +130,7 @@ export default function InertiaPluginAnimation() {
               animate="visible"
               exit="exit"
               className="code_sandbox">
-              <div className="x_button" onClick={() => setShowSandbox(false)}><Image src={"/cancel.svg"} width={35} height={35} alt='x-svg' /></div>
+              <div className="x_button" onClick={() => setShowSandbox(false)}><Image src={"/cancel.svg"} width={15} height={15} alt='x-svg' /></div>
               <div className="sandbox">
                 <div className="code_block">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vel eius quod rem dignissimos, nulla voluptatibus iure dicta eligendi, atque illum? Cumque officia earum placeat.</p>

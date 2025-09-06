@@ -257,9 +257,17 @@ body {
 
         .x_button {
             position: absolute;
-            top: 5px;
+            top: 10px;
             right: 15px;
             cursor: pointer;
+            background-color: rgb(210, 210, 210);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            width: 20px;
+            height: 20px;
+
         }
 
         .sandbox {
@@ -300,3 +308,6 @@ body {
 }
 
 // ANIMATIONS - ANIMATION 001 - INERTIA PLUGIN
+
+
+

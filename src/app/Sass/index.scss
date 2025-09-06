@@ -1,8 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@font-face {
+    font-family: 'Avant Garde';
+    src: url('../fonts/Avgard/AVGARDD_2.woff');
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../fonts/NeueHaasGrotesk/neuehaasgrotesk/NeueHaasDisplayMediu.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kollektief';
+    src: url('../fonts/kollektif/Kollektif.ttf');
+}
+
+
+@font-face {
+    font-family: 'Neutral Face';
+    src: url('../fonts/neutral_face/NeutralFace.otf');
+}
+
+@font-face {
+    font-family: 'Reddit Mono Medium';
+    src: url('../fonts/RedditMonoRoboto/Reddit_Mono/RedditMono-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Kumbh';
+    src: url('../fonts/Kumbh-Sans-Typeface/fonts/ttf/KumbhSans-Regular.ttf');
+}
+
+
 
 * {
-    font-family: 'Inter';
     scroll-behavior: smooth;
     margin: 0;
     box-sizing: border-box;
@@ -10,12 +45,258 @@
 
 body {
     height: 100vh;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(126, 17, 17);
     margin: 0;
     padding: 0;
 }
 
-.home {
-    border: 2px solid red;
-    min-height: 100vh;
+.main_layout {
+    position: relative;
 }
+
+.home {
+    min-height: 100vh;
+    background: hsl(10, 3%, 8%);
+    padding: 70px 40px;
+}
+
+.next-link {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-family: "Inter";
+}
+
+// NAVBAR
+
+.nav_main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+
+    .nav_container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2.5rem;
+        height: 100%;
+        box-sizing: border-box;
+
+        .nav_one {
+            .nav_one_link {
+                font-family: "Neutral Face";
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    opacity: 0.7;
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+
+        .nav_two {
+
+            p {
+                font-family: "Neutral Face";
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+
+            .nav_two_links {
+                visibility: hidden;
+                width: 150px;
+                height: 300px;
+                border-radius: 5px;
+                align-self: center;
+                overflow-y: scroll;
+                background-color: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(20px);
+                position: absolute;
+                top: 45px;
+                scrollbar-width: 0;
+                padding: 1rem .5rem;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+
+                .nav_two_links_link {
+                    color: rgba(255, 255, 255, 0.6);
+                    font-family: "Kumbh";
+                    font-size: 1rem;
+                    margin-bottom: .5rem;
+                    padding: .5rem 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgba(178, 255, 23, 0.5);
+                        color: black;
+                    }
+                }
+            }
+
+            .nav_two_links::-webkit-scrollbar {
+                display: none;
+            }
+
+            &:hover {
+                .nav_two_links {
+                    visibility: visible;
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+
+        .nav_three {
+            button {
+                padding: 10px 20px;
+                width: 180px;
+                background-color: yellowgreen;
+                font-size: 1.1rem;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: 500;
+                border: none;
+                border-radius: 4px;
+                outline: none;
+                cursor: pointer;
+                opacity: 0.8;
+                transition: all .2s ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+
+
+// NAVBAR
+
+// ANIMATIONS - ANIMATION 001 - INERTIA PLUGIN
+
+.mwg_effect000 {
+    background: hsl(10, 3%, 8%);
+    height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+
+    .medias {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1vw;
+
+        .img {
+            width: 8vw;
+            height: 8vw;
+            object-fit: contain;
+            border-radius: 4%;
+            pointer-events: none;
+            will-change: transform;
+        }
+    }
+
+    .tutorial_button_inertia_plugin {
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        padding: 10px 15px;
+        width: 180px;
+        height: 40px;
+        background-color: yellowgreen;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 500;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+
+
+        p {
+            font-size: .8rem;
+            margin-left: .5rem;
+        }
+    }
+
+    .code_sandbox {
+        position: absolute;
+        top: 120px;
+        left: 1.5rem;
+        transform: translateY(-50%);
+        padding: 2.5rem 1rem;
+        backdrop-filter: blur(20px);
+        width: 580px;
+        height: 80vh;
+        border-radius: 10px;
+        background-color: hsla(0, 2%, 17%, 0.5);
+
+        .x_button {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        .sandbox {
+            width: 100%;
+            height: 100%;
+            padding: 1rem 0;
+            overflow: scroll;
+            scrollbar-width: 0;
+            .code_block {
+                p {
+                    width: 100%;
+                    color: white;
+                    font-family: "Kumbh";
+                    line-height: 1.5;
+                    font-size: .95rem;
+                    margin-bottom: 1rem;
+                    padding: 0 .5rem;
+                }
+
+                .block {
+                    border-radius: .5rem;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 60vh;
+                    overflow-y: scroll;
+                    box-sizing: border-box;
+                }
+                .block::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .sandbox::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+// ANIMATIONS - ANIMATION 001 - INERTIA PLUGIN

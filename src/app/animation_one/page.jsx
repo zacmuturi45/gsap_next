@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
-import { one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, panelVariants, codeString } from '@/assets/imports'
+import { one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, panelVariants, codeString, scss_codestring } from '@/assets/imports'
 import "../css/index.css"
 import { AnimatePresence, motion } from 'framer-motion'
 import SyntaxHighlighter from 'react-syntax-highlighter'
@@ -26,6 +26,8 @@ gsap.registerPlugin(InertiaPlugin)
 
 export default function InertiaPluginAnimation() {
   const [show_sandbox, setShowSandbox] = useState(false);
+  const [code_selection, setCodeSelection] = useState("jsx")
+  const [fullscreen, set_fullscreen] = useState(false);
   const images = [
     { src: one, alt: 'one' },
     { src: two, alt: 'two' },
@@ -117,7 +119,7 @@ export default function InertiaPluginAnimation() {
       </div>
 
       <div className="tutorial_button_inertia_plugin" onClick={() => setShowSandbox(true)}>
-        <Image src={"/entrar.svg"} width={25} height={25} alt='enter-svg' style={{ transform: "rotateY(180deg)" }} />
+        <Image src={"/entrar.svg"} width={20} height={20} alt='enter-svg' />
         <p>View Tutorial</p>
       </div>
 
@@ -129,17 +131,35 @@ export default function InertiaPluginAnimation() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="code_sandbox">
+              className={fullscreen ? "code_sandbox full_screen" : "code_sandbox"}>
               <div className="x_button" onClick={() => setShowSandbox(false)}><Image src={"/cancel.svg"} width={15} height={15} alt='x-svg' /></div>
               <div className="sandbox">
-                <div className="code_block">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vel eius quod rem dignissimos, nulla voluptatibus iure dicta eligendi, atque illum? Cumque officia earum placeat.</p>
-                  <div className="block">
-                    <SyntaxHighlighter language='javascript' style={pojoaque} >
-                      {codeString}
-                    </SyntaxHighlighter>
-                  </div>
+                <div className="code_picker">
+                  <div onClick={() => setCodeSelection("jsx")}>JSX</div>
+                  <div onClick={() => setCodeSelection("scss")}>SCSS</div>
+                  <div onClick={() => set_fullscreen(!fullscreen)}>{fullscreen ? "Go Back" : "Full Screen"}</div>
                 </div>
+                {
+                  code_selection === "jsx" ? (
+                    <div className="code_block">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vel eius quod rem dignissimos, nulla voluptatibus iure dicta eligendi, atque illum? Cumque officia earum placeat.</p>
+                      <div className="block">
+                        <SyntaxHighlighter language='javascript' style={pojoaque} >
+                          {codeString}
+                        </SyntaxHighlighter>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="code_block">
+                      <p>This is pure scss code. If anyone tells you something else, they're lying throgh their teeth and shouldn't listen to them a bit. Don't lend them your ear at all.</p>
+                      <div className="block">
+                        <SyntaxHighlighter language='javascript' style={pojoaque} >
+                          {scss_codestring}
+                        </SyntaxHighlighter>
+                      </div>
+                    </div>
+                  )
+                }
               </div>
 
             </motion.div>

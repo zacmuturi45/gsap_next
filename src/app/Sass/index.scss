@@ -276,6 +276,28 @@ body {
             padding: 1rem 0;
             overflow: scroll;
             scrollbar-width: 0;
+
+            .code_picker {
+                display: flex;
+                padding: 0 .5rem;
+                width: fit-content;
+                margin-bottom: 1rem;
+                border-radius: 4px;
+                overflow: hidden;
+                div {
+                    border: 1px solid rgb(50, 50, 50);
+                    padding: .5rem 1rem;
+                    cursor: pointer;
+                    background-color: hsl(10, 3%, 8%);
+                    color: white;
+                    font-family: "Neutral Face";
+                    font-size: .8rem;
+                    opacity: 0.7;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
             .code_block {
                 p {
                     width: 100%;
@@ -303,6 +325,26 @@ body {
 
         .sandbox::-webkit-scrollbar {
             display: none;
+        }
+    }
+
+    .full_screen {
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        margin: 0;
+        top: 0;
+        left: 0;
+        z-index: 1000000;
+        justify-content: center;
+        display: flex;
+        .sandbox {
+            max-width: 1000px;
+            .code_block {
+                .block {
+                    height: 100%;
+                }
+            }
         }
     }
 }

@@ -150,3 +150,149 @@ export default function InertiaPluginAnimation() {
 }
 
 `
+
+
+export const scss_codestring = `
+.mwg_effect000 {
+    background: hsl(10, 3%, 8%);
+    height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+
+    .medias {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1vw;
+
+        .img {
+            width: 8vw;
+            height: 8vw;
+            object-fit: contain;
+            border-radius: 4%;
+            pointer-events: none;
+            will-change: transform;
+        }
+    }
+
+    .tutorial_button_inertia_plugin {
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        padding: 10px 15px;
+        width: 180px;
+        height: 40px;
+        background-color: yellowgreen;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 500;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+
+
+        p {
+            font-size: .8rem;
+            margin-left: .5rem;
+        }
+    }
+
+    .code_sandbox {
+        position: absolute;
+        top: 120px;
+        left: 1.5rem;
+        transform: translateY(-50%);
+        padding: 2.5rem 1rem;
+        backdrop-filter: blur(20px);
+        width: 580px;
+        height: 80vh;
+        border-radius: 10px;
+        background-color: hsla(0, 2%, 17%, 0.5);
+
+        .x_button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            background-color: rgb(210, 210, 210);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .sandbox {
+            width: 100%;
+            height: 100%;
+            padding: 1rem 0;
+            overflow: scroll;
+            scrollbar-width: 0;
+
+            .code_picker {
+                display: flex;
+                padding: 0 .5rem;
+                width: fit-content;
+                margin-bottom: 1rem;
+                border-radius: 4px;
+                overflow: hidden;
+                div {
+                    border: 1px solid rgb(50, 50, 50);
+                    padding: .5rem 1rem;
+                    cursor: pointer;
+                    background-color: hsl(10, 3%, 8%);
+                    color: white;
+                    font-family: "Neutral Face";
+                    font-size: .8rem;
+                    opacity: 0.7;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+            .code_block {
+                p {
+                    width: 100%;
+                    color: white;
+                    font-family: "Kumbh";
+                    line-height: 1.5;
+                    font-size: .95rem;
+                    margin-bottom: 1rem;
+                    padding: 0 .5rem;
+                }
+
+                .block {
+                    border-radius: .5rem;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 60vh;
+                    overflow-y: scroll;
+                    box-sizing: border-box;
+                }
+                .block::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .sandbox::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+`

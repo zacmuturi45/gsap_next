@@ -107,6 +107,24 @@ export default function InertiaPluginAnimation() {
     }
   }, [])
 
+  const one_function = (command) => {
+
+    switch (command) {
+      case "jsx":
+        setCodeSelection("jsx");
+        break;
+      case "scss":
+        setCodeSelection("scss");
+        break;
+      case "fullscreen":
+        set_fullscreen(!fullscreen);
+        break;
+      case "sandbox":
+        setShowSandbox(false)
+        set_fullscreen(false)
+    }
+  }
+
 
   return (
     <div className="mwg_effect000" ref={rootRef}>
@@ -132,12 +150,12 @@ export default function InertiaPluginAnimation() {
               animate="visible"
               exit="exit"
               className={fullscreen ? "code_sandbox full_screen" : "code_sandbox"}>
-              <div className="x_button" onClick={() => setShowSandbox(false)}><Image src={"/cancel.svg"} width={15} height={15} alt='x-svg' /></div>
+              <div className="x_button" onClick={() => one_function("sandbox")}><Image src={"/cancel.svg"} width={15} height={15} alt='x-svg' /></div>
               <div className="sandbox">
                 <div className="code_picker">
-                  <div onClick={() => setCodeSelection("jsx")}>JSX</div>
-                  <div onClick={() => setCodeSelection("scss")}>SCSS</div>
-                  <div onClick={() => set_fullscreen(!fullscreen)}>{fullscreen ? "Go Back" : "Full Screen"}</div>
+                  <div onClick={() => one_function("jsx")}>JSX</div>
+                  <div onClick={() => one_function("scss")}>SCSS</div>
+                  <div onClick={() => one_function("fullscreen")}>{fullscreen ? "Go Back" : "Full Screen"}</div>
                 </div>
                 {
                   code_selection === "jsx" ? (
